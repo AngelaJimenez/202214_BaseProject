@@ -10,29 +10,29 @@ import { AeropuertoEntity } from '../aeropuerto/aeropuerto.entity';
 export class AerolineaAeropuertoController {
    constructor(private readonly AerolineaAeropuertoService: AerolineaAeropuertoService){}
 
-   @Post(':aerolineaId/artworks/:aeropuertoId')
-   async addArtworkMuseum(@Param('aerolineaId') aerolineaId: string, @Param('aeropuertoId') aeropuertoId: string){
+   @Post(':aerolineaId/aeropuertos/:aeropuertoId')
+   async addAirportToAirline(@Param('aerolineaId') aerolineaId: string, @Param('aeropuertoId') aeropuertoId: string){
        return await this.AerolineaAeropuertoService.addAirportToAirline(aerolineaId, aeropuertoId);
    }
-   @Get(':aerolineaId/artworks/:aeropuertoId')
-   async findArtworkByaerolineaIdaeropuertoId(@Param('aerolineaId') aerolineaId: string, @Param('aeropuertoId') aeropuertoId: string){
+   @Get(':aerolineaId/aeropuertos/:aeropuertoId')
+   async findAirportFromAirline(@Param('aerolineaId') aerolineaId: string, @Param('aeropuertoId') aeropuertoId: string){
        return await this.AerolineaAeropuertoService.findAirportsFromAirline(aerolineaId, aeropuertoId);
    }
 
-   @Get(':aerolineaId/artworks')
-   async findArtworksByaerolineaId(@Param('aerolineaId') aerolineaId: string){
+   @Get(':aerolineaId/aeropuertos')
+   async findaeropuertosByaerolineaId(@Param('aerolineaId') aerolineaId: string){
        return await this.AerolineaAeropuertoService.findAirportFromAirline(aerolineaId);
    }
 
-   @Put(':aerolineaId/artworks')
-   async associateArtworksMuseum(@Body() artworksDto: AeropuertoDto[], @Param('aerolineaId') aerolineaId: string){
-       const aeropuertos = plainToInstance(AeropuertoEntity, artworksDto)
+   @Put(':aerolineaId/aeropuertos')
+   async updateAirportsFromAirline(@Body() aeropuertosDto: AeropuertoDto[], @Param('aerolineaId') aerolineaId: string){
+       const aeropuertos = plainToInstance(AeropuertoEntity, aeropuertosDto)
        return await this.AerolineaAeropuertoService.updateAirportsFromAirline(aerolineaId, aeropuertos);
    }
 
-   @Delete(':aerolineaId/artworks/:aeropuertoId')
+   @Delete(':aerolineaId/aeropuertos/:aeropuertoId')
 @HttpCode(204)
-   async deleteArtworkMuseum(@Param('aerolineaId') aerolineaId: string, @Param('aeropuertoId') aeropuertoId: string){
+   async deleteAirportFromAirline(@Param('aerolineaId') aerolineaId: string, @Param('aeropuertoId') aeropuertoId: string){
        return await this.AerolineaAeropuertoService.deleteAirportFromAirline(aerolineaId, aeropuertoId);
    }
 
