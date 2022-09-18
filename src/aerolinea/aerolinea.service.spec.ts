@@ -20,6 +20,7 @@ describe('AerolineaService', () => {
     for (let i = 0; i < 5; i++) {
       const aerolinea: AerolineaEntity = await repository.save({
         name: faker.lorem.words(2),
+        description: faker.lorem.paragraph(),
         fundationDate: faker.date.past(),
         webside: faker.internet.domainName(),
         aeropuertos: [],
@@ -61,6 +62,7 @@ describe('AerolineaService', () => {
     const aerolinea: AerolineaEntity = {
       id: '',
       name: faker.lorem.words(2),
+      description: faker.lorem.paragraph(),
       fundationDate: faker.date.past(),
       webside: faker.internet.domainName(),
       aeropuertos: [],
@@ -80,6 +82,7 @@ describe('AerolineaService', () => {
     const aerolinea: AerolineaEntity = {
       id: '',
       name: faker.lorem.words(2),
+      description: faker.lorem.paragraph(),
       fundationDate: faker.date.future(),
       webside: faker.internet.domainName(),
       aeropuertos: [],

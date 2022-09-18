@@ -9,6 +9,8 @@ export class AerolineaEntity {
 
  @Column()
  name: string;
+ @Column()
+ description: string;
  
  @Column()
  fundationDate: Date;

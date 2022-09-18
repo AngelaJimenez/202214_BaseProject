@@ -16,11 +16,11 @@ export class AerolineaService {
 
   async create(aerolinea: AerolineaEntity): Promise<AerolineaEntity> {
     const currentdate = new Date();
-    if(aerolinea.fundationDate>currentdate){
-    throw new BusinessLogicException(
-      'The aerolinea with the given id has a date higher that the todays date',
-      BusinessError.PRECONDITION_FAILED,
-    );}
+    if(new Date(aerolinea.fundationDate)>currentdate){
+  throw new BusinessLogicException(
+    'The aerolinea with the given id has a date higher that the todays date',
+    BusinessError.PRECONDITION_FAILED,
+  );}
 
     return await this.aerolineaRository.save(aerolinea);
   }
@@ -55,7 +55,7 @@ export class AerolineaService {
         BusinessError.NOT_FOUND,
       );
       const currentdate = new Date();
-      if(aerolinea.fundationDate>currentdate){
+      if(new Date(aerolinea.fundationDate)>currentdate){
     throw new BusinessLogicException(
       'The aerolinea with the given id has a date higher that the todays date',
       BusinessError.PRECONDITION_FAILED,

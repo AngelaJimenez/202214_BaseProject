@@ -1,5 +1,5 @@
 
-import {IsDate, IsNotEmpty, IsString, IsUrl} from 'class-validator';
+import {IsDate, IsDateString, IsNotEmpty, IsString, IsUrl} from 'class-validator';
 
 export class AerolineaDto {
 
@@ -7,7 +7,11 @@ export class AerolineaDto {
     @IsNotEmpty()
     readonly name: string;
     
-    @IsDate()
+    @IsString()
+    @IsNotEmpty()
+    readonly description: string;
+    
+    @IsDateString()
     @IsNotEmpty()
     readonly fundationDate: Date;
     

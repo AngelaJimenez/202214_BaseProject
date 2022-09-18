@@ -30,6 +30,7 @@ export class AerolineaAeropuertoController {
        return await this.AerolineaAeropuertoService.updateAirportsFromAirline(aerolineaId, aeropuertos);
    }
 
+
    @Delete(':aerolineaId/aeropuertos/:aeropuertoId')
 @HttpCode(204)
    async deleteAirportFromAirline(@Param('aerolineaId') aerolineaId: string, @Param('aeropuertoId') aeropuertoId: string){
